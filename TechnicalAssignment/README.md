@@ -1,7 +1,15 @@
 # EBI01951 - Technical Test
 
 This application was created by Osman Gunes for EMBL-EBI Java developer job role.
-After cloning the application run the (docker-compose -f .\docker-compose.yml up) command in the terminal project root directory, and you can run app. Since application contains maven wrapper you don't need to have same maven version.
+Clone Application From github 
+```bash
+git clone https://github.com/osmgunes/TechnicalAssignment.git
+```
+get docker postgresql db image with docker-compase.yml file using terminal.
+```bash
+docker-compose -f .\docker-compose.yml up
+```
+Now can run app.
 
 
 ## Technologies
@@ -109,7 +117,7 @@ C:.
 ## Integration Testing
 
 Integration test added by using in-memory h2 database created successfully
-schema and table loading successfully by using TestConfig.java file  but I couldn't Autowire repository
+schema and table loading successfully by using TestConfig.java file 
 ```bash
 C:.
 │   application-test.properties
