@@ -7,6 +7,6 @@ import lombok.Value;
 @Value
 public class MouseGeneSymbolSynonymResponse {
 
-    private String symbol;
-    private String synonym;
+    String symbol;
+    String synonym;
 }

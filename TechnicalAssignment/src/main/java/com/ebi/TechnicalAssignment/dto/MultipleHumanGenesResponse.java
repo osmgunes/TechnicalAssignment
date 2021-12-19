@@ -9,7 +9,7 @@ import lombok.Value;
 @Value
 public class MultipleHumanGenesResponse {
 
-    private HumanGene humanGene;
-    private Long supportCount;
+    HumanGene humanGene;
+    Long supportCount;
 
 }

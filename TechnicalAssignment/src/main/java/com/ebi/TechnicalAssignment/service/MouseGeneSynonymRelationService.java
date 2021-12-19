@@ -13,7 +13,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static com.ebi.TechnicalAssignment.Constant.Constant.MOUSE_GENE_SYMBOL_SYNONYM_NOT_FOUND;
+import static com.ebi.TechnicalAssignment.constant.Constant.MOUSE_GENE_SYMBOL_SYNONYM_NOT_FOUND;
 
 @Service
 public class MouseGeneSynonymRelationService {
@@ -34,7 +34,7 @@ public class MouseGeneSynonymRelationService {
                 .collect(Collectors.toList());
 
         if (mouseGeneSymbolSynonymResponses.size() == 0) {
-            throw new MouseGeneSymbolSynonymNotFoundException(String.format(MOUSE_GENE_SYMBOL_SYNONYM_NOT_FOUND));
+            throw new MouseGeneSymbolSynonymNotFoundException(MOUSE_GENE_SYMBOL_SYNONYM_NOT_FOUND);
         }
 
         return mouseGeneSymbolSynonymResponses;
@@ -48,7 +48,7 @@ public class MouseGeneSynonymRelationService {
                 .collect(Collectors.toList());
 
         if (mouseGeneSymbolSynonymResponses.size() == 0) {
-            throw new MouseGeneSymbolSynonymNotFoundException(String.format(MOUSE_GENE_SYMBOL_SYNONYM_NOT_FOUND));
+            throw new MouseGeneSymbolSynonymNotFoundException(MOUSE_GENE_SYMBOL_SYNONYM_NOT_FOUND);
         }
 
         return mouseGeneSymbolSynonymResponses;

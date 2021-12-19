@@ -1,6 +1,6 @@
 package com.ebi.TechnicalAssignment.service;
 
-import com.ebi.TechnicalAssignment.Constant.Constant;
+import com.ebi.TechnicalAssignment.constant.Constant;
 import com.ebi.TechnicalAssignment.config.TestConfig;
 import com.ebi.TechnicalAssignment.dto.HumanMouseGeneRelationResponse;
 import com.ebi.TechnicalAssignment.dto.MultipleHumanGenesResponse;
@@ -18,7 +18,6 @@ import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -38,9 +37,8 @@ class OrthologServiceTest {
     @DisplayName("Should throw Exception if There is no Relation with given symbol")
     void retrieveHumanMouseGeneRelationBySymbol_ThrowException() {
         //WHEN
-        Exception exception = Assertions.assertThrows(NoRelationFoundException.class, () -> {
-            orthologService.retrieveHumanMouseGeneRelationBySymbol("Fgf8");
-        });
+        Exception exception = Assertions.assertThrows(NoRelationFoundException.class, () ->
+                orthologService.retrieveHumanMouseGeneRelationBySymbol("Fgf8"));
 
         String actualMessage = exception.getMessage();
 
@@ -54,10 +52,10 @@ class OrthologServiceTest {
         //WHEN
         Mockito.when(orthologRepository.findByMouseGeneSymbol(Mockito.anyString())).thenReturn(TestData.dummyOrthologList());
 
-        List<HumanMouseGeneRelationResponse> humanMouseGeneRelationResponses= orthologService.retrieveHumanMouseGeneRelationBySymbol("Fgf8");
+        List<HumanMouseGeneRelationResponse> humanMouseGeneRelationResponses = orthologService.retrieveHumanMouseGeneRelationBySymbol("Fgf8");
 
-        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getHumanGene().getSymbol(),"Aoc3");
-        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getMouseGene().getSymbol(),"Fgf8");
+        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getHumanGene().getSymbol(), "Aoc3");
+        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getMouseGene().getSymbol(), "Fgf8");
     }
 
     @Test
@@ -65,9 +63,7 @@ class OrthologServiceTest {
     void retrieveHumanMouseGeneRelationByIdentifier_ThrowException() {
 
         //WHEN
-        Exception exception = Assertions.assertThrows(NoRelationFoundException.class, () -> {
-            orthologService.retrieveHumanMouseGeneRelationByIdentifier("MGI:99604");
-        });
+        Exception exception = Assertions.assertThrows(NoRelationFoundException.class, () -> orthologService.retrieveHumanMouseGeneRelationByIdentifier("MGI:99604"));
         String actualMessage = exception.getMessage();
 
         //THEN
@@ -81,19 +77,18 @@ class OrthologServiceTest {
         //WHEN
         Mockito.when(orthologRepository.findByMouseGeneMgiGeneAccId(Mockito.anyString())).thenReturn(TestData.dummyOrthologList());
 
-        List<HumanMouseGeneRelationResponse> humanMouseGeneRelationResponses= orthologService.retrieveHumanMouseGeneRelationByIdentifier("MGI:99604");
+        List<HumanMouseGeneRelationResponse> humanMouseGeneRelationResponses = orthologService.retrieveHumanMouseGeneRelationByIdentifier("MGI:99604");
 
-        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getHumanGene().getSymbol(),"Aoc3");
-        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getMouseGene().getSymbol(),"Fgf8");
+        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getHumanGene().getSymbol(), "Aoc3");
+        Assertions.assertEquals(humanMouseGeneRelationResponses.get(0).getMouseGene().getSymbol(), "Fgf8");
     }
 
     @Test
     @DisplayName("Should throw Exception if There is no multiple human genes for given symbol")
     void retrieveHumanGenesByMouseGeneSymbol_ThrowException() {
         //WHEN
-        Exception exception = Assertions.assertThrows(HumanGeneNotFoundException.class, () -> {
-            orthologService.retrieveHumanGenesByMouseGeneSymbol("Fgf8");
-        });
+        Exception exception = Assertions.assertThrows(HumanGeneNotFoundException.class, () ->
+                orthologService.retrieveHumanGenesByMouseGeneSymbol("Fgf8"));
         String actualMessage = exception.getMessage();
 
         //THEN
@@ -106,9 +101,9 @@ class OrthologServiceTest {
         //WHEN
         Mockito.when(orthologRepository.findByMouseGeneSymbol(Mockito.anyString())).thenReturn(TestData.dummyOrthologList());
 
-        List<MultipleHumanGenesResponse> multipleHumanGenesResponseList= orthologService.retrieveHumanGenesByMouseGeneSymbol("Fgf8");
+        List<MultipleHumanGenesResponse> multipleHumanGenesResponseList = orthologService.retrieveHumanGenesByMouseGeneSymbol("Fgf8");
 
-        Assertions.assertEquals(multipleHumanGenesResponseList.get(0).getHumanGene().getSymbol(),"Aoc3");
-        Assertions.assertEquals(multipleHumanGenesResponseList.get(0).getSupportCount(),3L);
+        Assertions.assertEquals(multipleHumanGenesResponseList.get(0).getHumanGene().getSymbol(), "Aoc3");
+        Assertions.assertEquals(multipleHumanGenesResponseList.get(0).getSupportCount(), 3L);
     }
 }

@@ -1,13 +1,10 @@
 package com.ebi.TechnicalAssignment.service;
 
 
-import com.ebi.TechnicalAssignment.Constant.Constant;
+import com.ebi.TechnicalAssignment.constant.Constant;
 import com.ebi.TechnicalAssignment.config.TestConfig;
 import com.ebi.TechnicalAssignment.dto.MouseGeneSymbolSynonymResponse;
 import com.ebi.TechnicalAssignment.exception.MouseGeneSymbolSynonymNotFoundException;
-import com.ebi.TechnicalAssignment.model.mouse.MouseGene;
-import com.ebi.TechnicalAssignment.model.mouse.MouseGeneSynonym;
-import com.ebi.TechnicalAssignment.model.mouse.MouseGeneSynonymRelation;
 import com.ebi.TechnicalAssignment.repository.MouseGeneSynonymRelationRepository;
 import com.ebi.TechnicalAssignment.tesdata.TestData;
 import org.junit.jupiter.api.Assertions;
@@ -20,7 +17,6 @@ import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,9 +35,7 @@ public class MouseGeneSynonymRelationServiceTest {
     @DisplayName("Should throw Not Found Exception If no data found By given symbol")
     void retrieveMouseBySymbol_ThrowException() {
         //WHEN
-        Exception exception = Assertions.assertThrows(MouseGeneSymbolSynonymNotFoundException.class, () -> {
-            mouseGeneSynonymRelationService.retrieveMouseGeneSymbolSynonymBySymbol("Dummy");
-        });
+        Exception exception = Assertions.assertThrows(MouseGeneSymbolSynonymNotFoundException.class, () -> mouseGeneSynonymRelationService.retrieveMouseGeneSymbolSynonymBySymbol("Dummy"));
 
         String actualMessage = exception.getMessage();
 
@@ -67,9 +61,7 @@ public class MouseGeneSynonymRelationServiceTest {
     void retrieveMouseBySynonym_ThrowException() {
 
         //WHEN
-        Exception exception = Assertions.assertThrows(MouseGeneSymbolSynonymNotFoundException.class, () -> {
-            mouseGeneSynonymRelationService.retrieveMouseGeneSymbolSynonymBySynonym("Dummy");
-        });
+        Exception exception = Assertions.assertThrows(MouseGeneSymbolSynonymNotFoundException.class, () -> mouseGeneSynonymRelationService.retrieveMouseGeneSymbolSynonymBySynonym("Dummy"));
         String actualMessage = exception.getMessage();
 
         //THEN

@@ -1,4 +1,4 @@
-package com.ebi.TechnicalAssignment.Constant;
+package com.ebi.TechnicalAssignment.constant;
 
 public class Constant {
     public static final String NO_HUMAN_GENE_MATCHED_WITH_GIVEN_SYMBOL = "No Human Gene Matched With Given Symbol.";

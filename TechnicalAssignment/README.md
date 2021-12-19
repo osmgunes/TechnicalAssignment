@@ -1,10 +1,10 @@
 # EBI01951 - Technical Test
 
 This application was created by Osman Gunes for EMBL-EBI Java developer job role.
-After cloning the application run the (docker-compose -f .\docker-compose.yml up) command in the terminal project root directory and you can run app. Since application contains maven wrapper you don need to have same maven version.
+After cloning the application run the (docker-compose -f .\docker-compose.yml up) command in the terminal project root directory, and you can run app. Since application contains maven wrapper you don't need to have same maven version.
 
 
-## Techologies
+## Technologies
 
 - JAVA 11
 - Springboot
